@@ -7,34 +7,33 @@
  * @lint-ignore-every XPLATJSCOPYRIGHT1
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import { Navigation } from 'react-native-navigation';
-const goToSecondScreen = (componentId) => {
+
+const goToSecondScreen = componentId => {
   Navigation.push(componentId, {
     component: {
-      name: 'SecondScreen'
-    }
-  })
-}
+      name: 'SecondScreen',
+    },
+  });
+};
 
-const FirstScreen = (props) => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.welcome}>First Screen</Text>
-      <TouchableHighlight
-        style={{ height: 20 }}
-        onPress={() => {
-          goToSecondScreen(props.componentId);
-        }}
-      >
-        <Text style={{ fontSize: 20, width: 150, textAlign: 'center' }}>
-          True
-        </Text>
-      </TouchableHighlight>
-    </View>
-  );
-}
+const FirstScreen = props => (
+  <View style={styles.container}>
+    <Text style={styles.welcome}>First Screen</Text>
+    <TouchableHighlight
+      style={{ height: 20 }}
+      onPress={() => {
+        goToSecondScreen(props.componentId);
+      }}
+    >
+      <Text style={{ fontSize: 20, width: 150, textAlign: 'center' }}>
+        True
+      </Text>
+    </TouchableHighlight>
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {

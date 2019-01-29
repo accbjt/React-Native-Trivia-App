@@ -7,16 +7,14 @@
  * @lint-ignore-every XPLATJSCOPYRIGHT1
  */
 
-import React, {Component} from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-const SecondScreen = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.welcome}>Second Screen</Text>
-    </View>
-  );
-}
+const SecondScreen = () => (
+  <View style={styles.container}>
+    <Text style={styles.welcome}>Second Screen</Text>
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {
