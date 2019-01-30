@@ -7,7 +7,13 @@ import { Text, View, TouchableHighlight } from 'react-native';
 const entities = new Entities();
 
 const QuestionScreen = ({ currentQuestion, nextQuestion, componentId }) => (
-  <View>
+  <View
+    style={{
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+    }}
+  >
     <Text
       style={{
         marginTop: 50,
