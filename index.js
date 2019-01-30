@@ -4,12 +4,9 @@
  */
 
 import { Navigation } from 'react-native-navigation';
-import { QuestionScreen, ScoreScreen } from './screens';
-import App from './App';
+import { registerScreens } from './screens';
 
-Navigation.registerComponent(`Home`, () => App);
-Navigation.registerComponent(`QuestionScreen`, () => QuestionScreen);
-Navigation.registerComponent(`ScoreScreen`, () => ScoreScreen);
+registerScreens();
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({

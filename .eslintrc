@@ -39,6 +39,7 @@
         "allowShortCircuit": true,
         "allowTernary": true
       }
-    ]
+    ],
+    "import/no-self-import": 0
   }
 }

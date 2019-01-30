@@ -24,26 +24,7 @@ const start = (componentId, startGame) => {
   });
 };
 
-const Home = props => {
-  const { end, answers, startGame, componentId } = props;
-  // if (end) {
-  //   const correct = answers.filter(answer => answer.isCorrect);
-  //
-  //   return (
-  //     <View style={styles.container}>
-  //       <ScoreView answers={answers} correct={correct} {...props} />
-  //     </View>
-  //   );
-  // }
-
-  // if (start) {
-  //   return (
-  //     <View style={styles.container}>
-  //       <QuestionView {...props} />
-  //     </View>
-  //   );
-  // }
-
+const Home = ({ componentId, startGame }) => {
   return (
     <View style={styles.container}>
       <Text
@@ -97,10 +78,8 @@ const Home = props => {
 };
 
 Home.propTypes = {
-  answers: PropTypes.array.isRequired,
-  start: PropTypes.number.isRequired,
-  end: PropTypes.bool.isRequired,
   componentId: PropTypes.string.isRequired,
+  startGame: PropTypes.func.isRequired,
 };
 
 export default Home;

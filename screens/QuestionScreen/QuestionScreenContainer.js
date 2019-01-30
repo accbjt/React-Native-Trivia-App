@@ -3,19 +3,13 @@ import QuestionScreen from './QuestionScreen';
 
 import { nextQuestion, reset } from '../../store/actions';
 
-const mapStateToProps = state => {
-  debugger;
-  return {
-    answers: state.answers,
-    currentQuestion: state.currentQuestion,
-    start: state.startQuestions,
-    end: state.endQuestions,
-  };
-};
+const mapStateToProps = state => ({
+  currentQuestion: state.currentQuestion,
+});
 
 const mapDispatchToProps = dispatch => ({
-  nextQuestion: answer => {
-    dispatch(nextQuestion(answer));
+  nextQuestion: (answer, componentId) => {
+    dispatch(nextQuestion(answer, componentId));
   },
   reset: () => {
     dispatch(reset());

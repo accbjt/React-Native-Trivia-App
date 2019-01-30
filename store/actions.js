@@ -1,3 +1,5 @@
+import { Navigation } from 'react-native-navigation';
+
 export const loadQuestions = payload => ({
   type: 'LOAD_QUESTIONS',
   payload,
@@ -21,8 +23,9 @@ export const reset = () => ({
   type: 'RESET_QUESTIONS',
 });
 
-export const nextQuestion = answer => (dispatch, getState) => {
+export const nextQuestion = (answer, componentId) => (dispatch, getState) => {
   const state = getState();
+
   const { currentQuestion, questions } = state;
   const question = questions[currentQuestion.index + 1];
   const currentAnswer = {
@@ -32,6 +35,12 @@ export const nextQuestion = answer => (dispatch, getState) => {
 
   if (currentQuestion.index + 1 === questions.length) {
     dispatch(loadNextQuestion(currentQuestion, currentAnswer));
+
+    Navigation.push(componentId, {
+      component: {
+        name: 'ScoreScreen',
+      },
+    });
 
     return dispatch(endQuestions());
   }

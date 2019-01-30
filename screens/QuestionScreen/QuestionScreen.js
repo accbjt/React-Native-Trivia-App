@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { AllHtmlEntities as Entities } from 'html-entities';
 import { Text, View, TouchableHighlight } from 'react-native';
 
 const entities = new Entities();
 
-const QuestionScreen = ({ currentQuestion, nextQuestion }) => (
+const QuestionScreen = ({ currentQuestion, nextQuestion, componentId }) => (
   <View>
     <Text
       style={{
@@ -37,7 +38,7 @@ const QuestionScreen = ({ currentQuestion, nextQuestion }) => (
       <TouchableHighlight
         style={{ height: 20 }}
         onPress={() => {
-          nextQuestion('True');
+          nextQuestion('True', componentId);
         }}
       >
         <Text style={{ fontSize: 20, width: 150, textAlign: 'center' }}>
@@ -47,7 +48,7 @@ const QuestionScreen = ({ currentQuestion, nextQuestion }) => (
       <TouchableHighlight
         style={{ height: 20 }}
         onPress={() => {
-          nextQuestion('False');
+          nextQuestion('False', componentId);
         }}
       >
         <Text style={{ fontSize: 20, width: 150, textAlign: 'center' }}>
@@ -59,6 +60,7 @@ const QuestionScreen = ({ currentQuestion, nextQuestion }) => (
 );
 
 QuestionScreen.propTypes = {
+  componentId: PropTypes.string.isRequired,
   currentQuestion: PropTypes.object.isRequired,
   nextQuestion: PropTypes.func.isRequired,
 };
