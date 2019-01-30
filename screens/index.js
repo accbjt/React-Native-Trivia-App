@@ -1,2 +1,3 @@
-export { default as FirstScreen } from './FirstScreen';
-export { default as SecondScreen } from './SecondScreen';
+export { default as Home } from './Home';
+export { default as QuestionScreen } from './QuestionScreen';
+export { default as ScoreScreen } from './ScoreScreen';

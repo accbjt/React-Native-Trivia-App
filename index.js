@@ -4,10 +4,12 @@
  */
 
 import { Navigation } from 'react-native-navigation';
-import { FirstScreen, SecondScreen } from './screens';
+import { QuestionScreen, ScoreScreen } from './screens';
+import App from './App';
 
-Navigation.registerComponent(`FirstScreen`, () => FirstScreen);
-Navigation.registerComponent(`SecondScreen`, () => SecondScreen);
+Navigation.registerComponent(`Home`, () => App);
+Navigation.registerComponent(`QuestionScreen`, () => QuestionScreen);
+Navigation.registerComponent(`ScoreScreen`, () => ScoreScreen);
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
@@ -17,11 +19,11 @@ Navigation.events().registerAppLaunchedListener(() => {
         children: [
           {
             component: {
-              name: 'FirstScreen',
+              name: 'Home',
               options: {
                 topBar: {
                   title: {
-                    text: 'First Screen',
+                    text: 'g2i Trivia',
                   },
                 },
               },
