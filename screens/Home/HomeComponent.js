@@ -54,6 +54,18 @@ const Home = ({ componentId, startGame }) => (
         onPress={() => start(componentId, startGame)}
       />
     </View>
+
+    <Text
+      style={{
+        ...styles.font,
+        marginTop: 125,
+        marginBottom: 125,
+        fontSize: 20,
+        textAlign: 'center',
+      }}
+    >
+      Can you score 100%?
+    </Text>
   </View>
 );
 
