@@ -1,18 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { Text, View } from 'react-native';
 import { Navigation } from 'react-native-navigation';
+import { Icon } from 'react-native-elements';
 
-// import ScoreView from '../ScoreView';
-// import QuestionView from '../QuestionView';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-  },
-});
+import styles from '../../styles';
 
 const start = (componentId, startGame) => {
   startGame();
@@ -20,16 +12,29 @@ const start = (componentId, startGame) => {
   Navigation.push(componentId, {
     component: {
       name: 'QuestionScreen',
+      options: {
+        topBar: {
+          title: {
+            text: 'Questions',
+          },
+        },
+      },
     },
   });
 };
 
 const Home = ({ componentId, startGame }) => (
-  <View style={styles.container}>
+  <View
+    style={{
+      ...styles.container,
+      backgroundColor: '#303952',
+    }}
+  >
     <Text
       style={{
-        marginTop: 50,
-        fontSize: 20,
+        ...styles.font,
+        marginTop: 100,
+        fontSize: 30,
         width: '50%',
         textAlign: 'center',
         fontWeight: 'bold',
@@ -37,41 +42,18 @@ const Home = ({ componentId, startGame }) => (
     >
       Welcome to the Trivia Challenge!
     </Text>
-    <Text
-      style={{
-        marginTop: 175,
-        fontSize: 20,
-        width: '50%',
-        textAlign: 'center',
-      }}
-    >
-      You will be presented with 10 true or false questions.
-    </Text>
-    <Text
-      style={{
-        marginTop: 125,
-        marginBottom: 125,
-        fontSize: 20,
-        textAlign: 'center',
-      }}
-    >
-      Can you score 100%?
-    </Text>
 
-    <TouchableHighlight
-      style={{ height: 20 }}
-      onPress={() => start(componentId, startGame)}
-    >
-      <Text
-        style={{
-          fontSize: 20,
-          textAlign: 'center',
-          height: 20,
-        }}
-      >
-        BEGIN
-      </Text>
-    </TouchableHighlight>
+    <View style={{ marginTop: 100 }}>
+      <Icon
+        raised
+        name="play-circle"
+        type="font-awesome"
+        color="#e15f41"
+        size={40}
+        reverse
+        onPress={() => start(componentId, startGame)}
+      />
+    </View>
   </View>
 );
 
