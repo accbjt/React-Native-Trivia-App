@@ -19,8 +19,12 @@ Navigation.events().registerAppLaunchedListener(() => {
               name: 'Home',
               options: {
                 topBar: {
+                  background: {
+                    color: '#303952',
+                  },
                   title: {
                     text: 'g2i Trivia',
+                    color: '#fff',
                   },
                 },
               },
