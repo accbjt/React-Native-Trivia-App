@@ -8,6 +8,7 @@ const entities = new Entities();
 
 const ScoreScreen = ({ answers, reset, componentId }) => {
   const correct = answers.filter(answer => answer.isCorrect);
+  const incorrect = answers.filter(answer => !answer.isCorrect);
 
   return (
     <View
@@ -43,7 +44,7 @@ const ScoreScreen = ({ answers, reset, componentId }) => {
         /10
       </Text>
       <ScrollView>
-        {answers.map(answer => (
+        {[...incorrect, ...correct].map(answer => (
           <View
             key={answer.id}
             style={{
