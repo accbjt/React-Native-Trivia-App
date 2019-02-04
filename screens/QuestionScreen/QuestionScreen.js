@@ -7,7 +7,7 @@ import { Text, View, Animated, Dimensions } from 'react-native';
 import styles from '../../styles';
 
 const entities = new Entities();
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 const getBackgroundColor = () => {
   const colors = [
